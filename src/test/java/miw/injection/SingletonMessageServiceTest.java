@@ -18,7 +18,7 @@ public class SingletonMessageServiceTest {
     @Test
     public void testGetMessage() {
         assertEquals("1", this.singletonMessageService.getMessage().substring(0, 1));
-        assertEquals("2", this.singletonMessageService.getMessage().substring(0, 1));
+        assertEquals("22", this.singletonMessageService.getMessage().substring(0, 1));
         Logger.getLogger(this.getClass().getName()).debug(">>>>>> message: " + this.singletonMessageService.getMessage());        
     }
 }

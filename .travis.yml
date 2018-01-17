@@ -15,5 +15,12 @@ notifications:
 #- mysql -e 'CREATE DATABASE IF NOT EXISTS spring;'
 script:
 - mvn -Dtest=**/*Test test
-- mvn -Dtest=**/*IT package
-- mvn -Dtest=**/*FunctionalTesting verify
+# Integration Test
+- if [ $TRAVIS_TEST_RESULT == 0 ];
+     then  mvn -Dtest=**/*IT package; 
+     else  echo "ERRORES!!! ... se saltan los test de integracion"; 
+  fi
+- if [ $TRAVIS_TEST_RESULT == 0 ];
+     then  -Dtest=**/*FunctionalTesting verify;
+     else  echo "ERRORES!!! ... se saltan los test de funcionalidad"; 
+  fi
