@@ -21,6 +21,6 @@ script:
      else  echo "ERRORES!!! ... se saltan los test de integracion"; 
   fi
 - if [ $TRAVIS_TEST_RESULT == 0 ];
-     then  -Dtest=**/*FunctionalTesting verify;
+     then  mvn -Dtest=**/*FunctionalTesting verify;
      else  echo "ERRORES!!! ... se saltan los test de funcionalidad"; 
   fi
