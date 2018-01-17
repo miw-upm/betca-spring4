@@ -22,7 +22,7 @@ public class MainInjectonIT {
     @Test
     public void testGetMessage() {
         int i = Integer.parseInt(this.mainInjection.getMessage().split(":")[0]);
-        assertEquals(i + 111, Integer.parseInt(this.mainInjection.getMessage().split(":")[0]));
+        assertEquals(i + 1, Integer.parseInt(this.mainInjection.getMessage().split(":")[0]));
         Logger.getLogger(this.getClass().getName()).debug(">>>>>> message: " + this.mainInjection.getMessage());
     }
 }
