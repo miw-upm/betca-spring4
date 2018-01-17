@@ -7,11 +7,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test.properties")
 public class MainInjectonIntegrationTest {
 
@@ -22,6 +23,6 @@ public class MainInjectonIntegrationTest {
     public void testGetMessage() {
         int i = Integer.parseInt(this.mainInjection.getMessage().split(":")[0]);
         assertEquals(i + 1, Integer.parseInt(this.mainInjection.getMessage().split(":")[0]));
-        Logger.getLogger("BETCA-spring: " + this.getClass().getName()).info(">>>>>> message: " + this.mainInjection.getMessage());
+        Logger.getLogger(this.getClass().getName()).debug(">>>>>> message: " + this.mainInjection.getMessage());
     }
 }

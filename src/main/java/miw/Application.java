@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import miw.aspect.AspectMain;
 import miw.injection.InjectionMain;
 
 @SpringBootApplication
@@ -17,9 +16,6 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     private InjectionMain mainInjection;
-
-    @Autowired
-    private AspectMain aspectMain;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -40,8 +36,6 @@ public class Application implements CommandLineRunner {
         if (args.length > 0) {
             if (args[0].equals("injection")) {
                 this.mainInjection.debugAndClose();
-            } else if (args[0].equals("aspect")) {
-                this.aspectMain.debugAndClose();
             }
         }
     }

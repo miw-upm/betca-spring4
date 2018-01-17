@@ -10,6 +10,7 @@ import miw.injection.SingletonMessageServiceInjectionTest;
 import miw.injection.SingletonMessageServiceTest;
 import miw.persistence.daos.AllPersistenceDaosIntegrationsTests;
 import miw.persistence.daos.library.LibraryIT;
+import miw.resources.AllResourcesFunctionalTestingTests;
 
 @RunWith(Suite.class)
 @SuiteClasses({
@@ -18,7 +19,8 @@ import miw.persistence.daos.library.LibraryIT;
     MainInjectonIntegrationTest.class,
     MainInjectonMessageServiceMockTest.class,
     SingletonMessageServiceInjectionTest.class,
-    SingletonMessageServiceTest.class
+    SingletonMessageServiceTest.class,
+    AllResourcesFunctionalTestingTests.class
 })
 public class AllMiwTests {
 

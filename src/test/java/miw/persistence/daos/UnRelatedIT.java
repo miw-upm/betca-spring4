@@ -13,14 +13,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import miw.persistence.entities.Gender;
 import miw.persistence.entities.UnRelatedEntity;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@TestPropertySource(locations = "classpath:test.properties")
 public class UnRelatedIT {
 
     @Autowired
@@ -34,8 +37,8 @@ public class UnRelatedIT {
                     Arrays.asList(list), "no persistence"));
         }
     }
-    
-    //CRUD
+
+    // CRUD
     @Test
     public void testCount() {
         assertEquals(4, unRelatedDao.count());
@@ -60,12 +63,12 @@ public class UnRelatedIT {
         assertEquals(3, unRelatedDao.findFirst3ByNickStartingWith("ni").size());
     }
 
-//    @Test
-//    public void testFindByNickOrLargeOrderByIdDesc() {
-//        assertTrue(unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(0).getId() > unRelatedDao
-//                .findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(1).getId());
-//        assertEquals(4, unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").size());
-//    }
+    // @Test
+    // public void testFindByNickOrLargeOrderByIdDesc() {
+    // assertTrue(unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(0).getId() > unRelatedDao
+    // .findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(1).getId());
+    // assertEquals(4, unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").size());
+    // }
 
     @Test
     public void testFindByIdGreaterThan() {
@@ -78,7 +81,7 @@ public class UnRelatedIT {
         assertEquals(2, unRelatedDao.findByNickIn(Arrays.asList(new String[] {"nick1", "nick2"})).size());
     }
 
-    //JPQL
+    // JPQL
     @Test
     public void testFindNickByNickLike() {
         assertEquals(0, unRelatedDao.findNickByNickLike("i%").size());
@@ -91,13 +94,13 @@ public class UnRelatedIT {
         assertEquals(2, unRelatedDao.findIdByIdBetween(id - 1, id + 2).size());
     }
 
-    //SQL
+    // SQL
     @Test
     public void testFindByNick() {
         assertEquals("nick1", unRelatedDao.findByNick("nick1").getNick());
     }
 
-    //BORRADO
+    // BORRADO
     @Test
     public void testDeleteByNick() {
         assertNotNull(unRelatedDao.findByNick("nick0"));
@@ -120,12 +123,12 @@ public class UnRelatedIT {
         unRelatedDao.deleteByNickQuery("unNick");
         assertNull(unRelatedDao.findByNick("unNick"));
     }
-    
-//    @Test
-//    public void testCustom(){
-//        unRelatedDao.custom(new UnRelatedEntity("custom"));
-//        assertNotNull(unRelatedDao.findByNickIgnoreCase("custom"));
-//    }
+
+    // @Test
+    // public void testCustom(){
+    // unRelatedDao.custom(new UnRelatedEntity("custom"));
+    // assertNotNull(unRelatedDao.findByNickIgnoreCase("custom"));
+    // }
 
     @After
     public void deleteAll() {
