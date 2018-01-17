@@ -9,11 +9,11 @@ notifications:
   email:
     recipients:
     - j.bernal@upm.es
-services:
-- mysql
-before_install:
-- mysql -e 'CREATE DATABASE IF NOT EXISTS forge;'
+#services:
+#- mysql
+#before_install:
+#- mysql -e 'CREATE DATABASE IF NOT EXISTS spring;'
 script:
-- mvn -Dtest=**/*Test
-- mvn -Dtest=**/*IT
-- mvn -Dtest=**/*FunctionalTesting
+- mvn -Dtest=**/*Test test
+- mvn -Dtest=**/*IT package
+- mvn -Dtest=**/*FunctionalTesting verify
