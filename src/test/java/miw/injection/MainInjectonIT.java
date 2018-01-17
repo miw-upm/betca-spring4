@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test.properties")
-public class MainInjectonIntegrationTest {
+public class MainInjectonIT {
 
     @Autowired
     private InjectionMain mainInjection;
@@ -22,7 +22,7 @@ public class MainInjectonIntegrationTest {
     @Test
     public void testGetMessage() {
         int i = Integer.parseInt(this.mainInjection.getMessage().split(":")[0]);
-        assertEquals(i + 1, Integer.parseInt(this.mainInjection.getMessage().split(":")[0]));
+        assertEquals(i + 111, Integer.parseInt(this.mainInjection.getMessage().split(":")[0]));
         Logger.getLogger(this.getClass().getName()).debug(">>>>>> message: " + this.mainInjection.getMessage());
     }
 }

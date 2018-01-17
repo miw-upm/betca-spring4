@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import miw.injection.MainInjectonIntegrationTest;
+import miw.injection.MainInjectonIT;
 import miw.injection.MainInjectonMessageServiceMockTest;
 import miw.injection.SingletonMessageServiceInjectionTest;
 import miw.injection.SingletonMessageServiceTest;
@@ -16,7 +16,7 @@ import miw.resources.AllResourcesFunctionalTestingTests;
 @SuiteClasses({
     AllPersistenceDaosIntegrationsTests.class,
     LibraryIT.class,
-    MainInjectonIntegrationTest.class,
+    MainInjectonIT.class,
     MainInjectonMessageServiceMockTest.class,
     SingletonMessageServiceInjectionTest.class,
     SingletonMessageServiceTest.class,
