@@ -25,6 +25,8 @@ public class AdminResource {
 
     public static final String STATE = "/state";
 
+    public static final String OUT_OF_TIME = "/out-of-time";
+
     public static final String ECHO = "/echo";
 
     public static final String ID = "/{id}";
@@ -39,8 +41,13 @@ public class AdminResource {
 
     // Se puede comprobar con un navegador
     @RequestMapping(value = STATE, method = RequestMethod.GET)
-    public String start() {
+    public String state() {
         return "{\"state\":\"ok\"}";
+    }
+    
+    @RequestMapping(value = OUT_OF_TIME, method = RequestMethod.GET)
+    public String outOfTime() {
+        return "{\"state\":\"off\"}";
     }
 
     // Intercambio de datos

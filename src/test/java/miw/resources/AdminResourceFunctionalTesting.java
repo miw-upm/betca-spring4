@@ -55,6 +55,12 @@ public class AdminResourceFunctionalTesting {
         String json = new RestBuilder<String>(port).path(AdminResource.ADMINS).path(AdminResource.STATE).clazz(String.class).get().build();
         assertEquals("{\"state\":\"ok\"}", json);
     }
+    
+    @Test
+    public void testOutOfTime() {
+        thrown.expect(new HttpMatcher(HttpStatus.FORBIDDEN));
+        new RestBuilder<String>(port).path(AdminResource.ADMINS).path(AdminResource.OUT_OF_TIME).clazz(String.class).get().build();
+    }
 
     // Parametros y cuerpo
     @Test

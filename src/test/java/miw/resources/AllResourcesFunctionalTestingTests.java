@@ -7,7 +7,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({
     AdminResourceFunctionalTesting.class,
-    SecurityResourceFunctionalTesting.class
+    SecurityResourceFunctionalTesting.class,
+    TimeBasedAccessInterceptorFunctionalTesting.class
 })
 public class AllResourcesFunctionalTestingTests {
 
