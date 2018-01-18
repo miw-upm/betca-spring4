@@ -28,7 +28,6 @@ public class SingletonMessageService {
         return this.counter++ + ": SingletonMessageService!!! " + this.name;
     }
 
-
     @PreDestroy
     public void destroy() {
         Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName()).info(">>>>>> SingletonMessageService:destroy()");

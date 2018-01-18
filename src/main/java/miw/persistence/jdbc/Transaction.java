@@ -54,8 +54,7 @@ public class Transaction {
         try {
             result = sentencia.executeQuery("SELECT * FROM tabla1");
             while (result.next())
-                System.out.println("id1: " + result.getLong("id1") + ", nombre: "
-                        + result.getString("nombre"));
+                System.out.println("id1: " + result.getLong("id1") + ", nombre: " + result.getString("nombre"));
         } catch (SQLException e) {
             System.out.println("Consulta Fallida: " + e.getMessage());
         }

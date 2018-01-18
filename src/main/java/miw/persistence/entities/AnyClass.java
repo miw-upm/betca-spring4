@@ -2,13 +2,13 @@ package miw.persistence.entities;
 
 import java.io.Serializable;
 
-public class AnyClass implements Serializable{
+public class AnyClass implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int number;
-    
+
     private String value;
-   
+
     public AnyClass() {
     }
 
@@ -29,5 +29,5 @@ public class AnyClass implements Serializable{
     public String getValue() {
         return value;
     }
-    
+
 }

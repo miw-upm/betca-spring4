@@ -6,9 +6,9 @@ import javax.persistence.Embeddable;
 public class EmbeddableEntity {
 
     private int number;
-    
+
     private String value;
-   
+
     public EmbeddableEntity() {
     }
 

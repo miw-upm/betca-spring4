@@ -27,8 +27,7 @@ public class HelloJDBC {
         }
 
         try {
-            sentencia
-                    .executeUpdate("CREATE TABLE IF NOT EXISTS tabla1 (id1 INT PRIMARY KEY,nombre CHAR(20) DEFAULT '-')");
+            sentencia.executeUpdate("CREATE TABLE IF NOT EXISTS tabla1 (id1 INT PRIMARY KEY,nombre CHAR(20) DEFAULT '-')");
             System.out.println("OK. Tabla creada");
         } catch (SQLException e) {
             System.out.println("Creación de tabla fallida: " + e.getMessage());
@@ -46,8 +45,7 @@ public class HelloJDBC {
         try {
             result = sentencia.executeQuery("SELECT * FROM tabla1");
             while (result.next())
-                System.out.println("    id1: " + result.getLong("id1") + ", nombre: "
-                        + result.getString("nombre"));
+                System.out.println("    id1: " + result.getLong("id1") + ", nombre: " + result.getString("nombre"));
             System.out.println("OK. Datos consultados en la tabla");
         } catch (SQLException e) {
             System.out.println("Consulta Fallida: " + e.getMessage());

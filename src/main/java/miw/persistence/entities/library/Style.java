@@ -14,9 +14,9 @@ public class Style {
 
     @Column(unique = true, nullable = false, length = 30)
     private String name;
-    
+
     private String description;
-    
+
     public Style() {
     }
 

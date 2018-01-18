@@ -44,7 +44,7 @@ public class AdminResource {
     public String state() {
         return "{\"state\":\"ok\"}";
     }
-    
+
     @RequestMapping(value = OUT_OF_TIME, method = RequestMethod.GET)
     public String outOfTime() {
         return "{\"state\":\"off\"}";

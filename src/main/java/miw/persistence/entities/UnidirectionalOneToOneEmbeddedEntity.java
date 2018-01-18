@@ -56,5 +56,5 @@ public class UnidirectionalOneToOneEmbeddedEntity {
     public EmbeddableEntity getEmbeddableEntity() {
         return embeddableEntity;
     }
-    
+
 }

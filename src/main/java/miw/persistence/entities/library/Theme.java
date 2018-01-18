@@ -15,7 +15,7 @@ public class Theme {
 
     public Theme() {
     }
-    
+
     public Theme(String name) {
         super();
         this.name = name;
