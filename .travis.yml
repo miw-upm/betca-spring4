@@ -29,7 +29,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: 92cc739d-ed70-411e-a343-f39367a5c249
+    secure: osiqbSi7f9E4Bv5asuYvtamLe7AzbeFA46RK/roSWot+LfpaVmbqvX9ld5yED88VqnAdLdr3Wo1kuFH3vkhKOxSn5D8gCD2zvgG5AeAn3eGU+Bpmxz5vvaDEj2EkWwlyYMojZ1KRlRCBOAPVjaA4+hkMf4+W6ryVbAqIHdbNUseTwspK6lu+FSiJtT+osr9Ndw/XI3wsruwXPXUDnQoa24mlSX12VlfZW2JA8qJyLs+phnO5f+f1JcAllVvqNBFdk7wzLrufCSieFiIGAAbjvMuU9JJEhKivgZfFhJ6rZbflKsiG0oTuDhtvbFvNH8KVdCm318UixMsfsYB371KwYMhDheHjx5V8KvkGxEySDfRFjlm8OO471J5Ky85b9B5QWOffDlXW4yoL4U/kBbSKA7z8PaiLNQ5o+MUecarPSEya0ZGkfmzmDF8L9NFrDQrIWJY/AcAYUocQac8v92Rx8U/A93l+cgbCSps5ZA7Bj6yWd2gzyW8ZKrf3M/20HJe+OLUqmgv2WJE5aZKAIW1bHodJGvT1z3o03tD7YkdtEhw9pdspeSQos6Fci+rEDmSgnwnN1QM2/3rpKjU/CkXseFkWtX/aRZSiqZLFxv9MMibY6TY5IpJm0dty3ZE2ACMAYqjcvbYw5G6wS7dcvqIMyl5DLfND/VTOfpPBk05Bf4w=
   app: betca-spring
   on:
     repo: miw-upm/BETCA-spring
