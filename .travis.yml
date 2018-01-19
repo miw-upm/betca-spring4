@@ -26,3 +26,11 @@ script:
      then  mvn -Dtest=**/*FunctionalTesting verify;
      else  echo "ERRORES!!! ... se abortan resto de test"; 
   fi
+deploy:
+  provider: heroku
+  api_key:
+    secure: 92cc739d-ed70-411e-a343-f39367a5c249
+  app: betca-spring
+  on:
+    repo: miw-upm/BETCA-spring
+    branch: develop

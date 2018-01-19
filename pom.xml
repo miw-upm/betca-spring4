@@ -14,6 +14,7 @@
 	</parent>
 
 	<properties>
+        <deploy>${project.artifactId}-${project.version}</deploy>
 		<encoding>UTF-8</encoding>
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
