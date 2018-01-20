@@ -11,10 +11,10 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class TimeBasedAccessInterceptor extends HandlerInterceptorAdapter {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        Logger.getLogger(this.getClass().getName()).debug(">>>>>> Interceptor... Open: 14:00 to 16:00");
+        Logger.getLogger(this.getClass().getName()).debug(">>>>>> Interceptor... Open: 4:00 to 4:59");
         Calendar cal = Calendar.getInstance();
         int hour = cal.get(Calendar.HOUR_OF_DAY);
-        if (14 <= hour && hour < 16) {
+        if (4 <= hour && hour < 4) {
             return true;
         }
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
