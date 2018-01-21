@@ -1,5 +1,6 @@
 package miw.persistence.mongo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -44,9 +45,11 @@ public class Mobile {
         return id;
     }
 
+
     @Override
     public String toString() {
-        return "Mobile [id=" + id + ", type=" + type + "]";
+        String time = new SimpleDateFormat("dd-MMM-yyyy").format(this.date.getTime());
+        return "Mobile [id=" + id + ", type=" + type + ", date=" + time + "]";
     }
 
 }
