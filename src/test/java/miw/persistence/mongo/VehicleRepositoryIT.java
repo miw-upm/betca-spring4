@@ -15,29 +15,27 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test.properties")
-public class MobileRepositoryITLocal {
+public class VehicleRepositoryIT {
 
     @Autowired
-    private MobileRepository mobileRepository;
+    private VehicleRepository vehicleRepository;
 
-    private Mobile mobile;
+    Vehicle vehicle = new Vehicle("1234 zzz");
 
     @Before
     public void populate() {
-        this.mobile = new Mobile("066666666", Type.BASIC);
-        mobileRepository.save(this.mobile);
-
+        this.vehicle = new Vehicle("1234 zzz");
+        this.vehicleRepository.save(vehicle);
     }
 
     @Test
     public void testFindOne() {
-        assertEquals(this.mobile.getId(), mobileRepository.findOne("066666666").getId());
-        assertEquals(this.mobile.getType(), mobileRepository.findOne("066666666").getType());
+        assertEquals(this.vehicle.getId(), vehicleRepository.findByregister("1234 zzz").getId());
     }
 
     @After
     public void deleteAll() {
-        mobileRepository.delete(this.mobile);
+        vehicleRepository.delete(vehicle);
     }
 
 }
