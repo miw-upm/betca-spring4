@@ -12,8 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import miw.persistence.entities.EmbeddableEntity;
-import miw.persistence.entities.UnidirectionalOneToOneEmbeddedEntity;
+import miw.persistence.jpa.daos.UnidirectionalOneToOneEmbeddedDao;
+import miw.persistence.jpa.entities.EmbeddableEntity;
+import miw.persistence.jpa.entities.UnidirectionalOneToOneEmbeddedEntity;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

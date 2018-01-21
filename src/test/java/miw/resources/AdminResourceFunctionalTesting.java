@@ -22,9 +22,10 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-import miw.persistence.entities.Gender;
+import miw.persistence.jpa.entities.Gender;
+
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

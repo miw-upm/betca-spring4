@@ -5,11 +5,15 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import miw.persistence.entities.library.Author;
-import miw.persistence.entities.library.Book;
-import miw.persistence.entities.library.Contact;
-import miw.persistence.entities.library.Style;
-import miw.persistence.entities.library.Theme;
+import miw.persistence.jpa.daos.library.AuthorDao;
+import miw.persistence.jpa.daos.library.BookDao;
+import miw.persistence.jpa.daos.library.StyleDao;
+import miw.persistence.jpa.daos.library.ThemeDao;
+import miw.persistence.jpa.entities.library.Author;
+import miw.persistence.jpa.entities.library.Book;
+import miw.persistence.jpa.entities.library.Contact;
+import miw.persistence.jpa.entities.library.Style;
+import miw.persistence.jpa.entities.library.Theme;
 
 @Service
 public class DaosLibraryService {

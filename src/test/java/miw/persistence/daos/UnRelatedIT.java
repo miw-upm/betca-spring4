@@ -18,8 +18,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import miw.persistence.entities.Gender;
-import miw.persistence.entities.UnRelatedEntity;
+import miw.persistence.jpa.daos.UnRelatedDao;
+import miw.persistence.jpa.entities.Gender;
+import miw.persistence.jpa.entities.UnRelatedEntity;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

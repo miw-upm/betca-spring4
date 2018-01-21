@@ -3,7 +3,7 @@ package miw.resources;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import miw.persistence.entities.Gender;
+import miw.persistence.jpa.entities.Gender;
 
 public class Dto {
 

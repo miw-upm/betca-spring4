@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import miw.persistence.entities.Gender;
+import miw.persistence.jpa.entities.Gender;
 import miw.resources.exceptions.MalformedHeaderException;
 import miw.resources.exceptions.NotFoundUserIdException;
 import miw.resources.exceptions.UnauthorizedException;
 
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(AdminResource.ADMINS)
 public class AdminResource {
