@@ -8,19 +8,21 @@ import miw.injection.MainInjectonIT;
 import miw.injection.MainInjectonMessageServiceMockTest;
 import miw.injection.SingletonMessageServiceInjectionTest;
 import miw.injection.SingletonMessageServiceTest;
-import miw.persistence.daos.AllPersistenceDaosIntegrationsTests;
-import miw.persistence.daos.library.LibraryIT;
-import miw.resources.AllResourcesFunctionalTestingTests;
+import miw.persistence.jpa.daos.AllPersistenceJpaDaosIntegrationsTests;
+import miw.persistence.jpa.daos.library.LibraryIT;
+import miw.persistence.mongo.AllPersistenceMongoRepositoryIntegrationsTests;
+import miw.resources.AllResourcesFunctionalTests;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-    AllPersistenceDaosIntegrationsTests.class,
+    AllPersistenceJpaDaosIntegrationsTests.class,
     LibraryIT.class,
     MainInjectonIT.class,
     MainInjectonMessageServiceMockTest.class,
     SingletonMessageServiceInjectionTest.class,
     SingletonMessageServiceTest.class,
-    AllResourcesFunctionalTestingTests.class
+    AllResourcesFunctionalTests.class,
+    AllPersistenceMongoRepositoryIntegrationsTests.class
 })
 public class AllMiwTests {
 

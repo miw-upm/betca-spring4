@@ -1,4 +1,4 @@
-package miw.persistence.daos.library;
+package miw.persistence.jpa.daos.library;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

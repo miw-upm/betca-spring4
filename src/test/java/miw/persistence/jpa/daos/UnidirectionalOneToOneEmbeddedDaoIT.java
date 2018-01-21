@@ -1,4 +1,4 @@
-package miw.persistence.daos;
+package miw.persistence.jpa.daos;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +19,7 @@ import miw.persistence.jpa.entities.UnidirectionalOneToOneEmbeddedEntity;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test.properties")
-public class UnidirectionalOneToOneEmbeddedIT {
+public class UnidirectionalOneToOneEmbeddedDaoIT {
 
     @Autowired
     private UnidirectionalOneToOneEmbeddedDao unidirectionalOneToOneEmbeddedDao;

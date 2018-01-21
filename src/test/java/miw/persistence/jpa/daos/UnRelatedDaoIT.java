@@ -1,4 +1,4 @@
-package miw.persistence.daos;
+package miw.persistence.jpa.daos;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -25,7 +25,7 @@ import miw.persistence.jpa.entities.UnRelatedEntity;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:test.properties")
-public class UnRelatedIT {
+public class UnRelatedDaoIT {
 
     @Autowired
     private UnRelatedDao unRelatedDao;

@@ -1,4 +1,4 @@
-package miw.persistence.daos.library;
+package miw.persistence.jpa.daos.library;
 
 import java.util.Arrays;
 

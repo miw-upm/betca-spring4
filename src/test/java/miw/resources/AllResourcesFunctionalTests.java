@@ -10,6 +10,6 @@ import org.junit.runners.Suite.SuiteClasses;
     SecurityResourceFunctionalTesting.class,
     TimeBasedAccessInterceptorFunctionalTesting.class
 })
-public class AllResourcesFunctionalTestingTests {
+public class AllResourcesFunctionalTests {
 
 }
