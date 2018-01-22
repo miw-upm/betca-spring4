@@ -24,12 +24,12 @@ public class User {
     private String name;
 
     private String description;
-    
+
     private Address address;
-    
+
     @DBRef
     private Vehicle vehicle;
-    
+
     @DBRef
     private List<Mobile> mobileList;
 
@@ -38,7 +38,7 @@ public class User {
         this.description = description;
         this.address = address;
         this.vehicle = vehicle;
-        this.mobileList= new ArrayList<>();
+        this.mobileList = new ArrayList<>();
     }
 
     public String getName() {

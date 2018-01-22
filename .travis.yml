@@ -27,6 +27,7 @@ script:
      then  mvn -Dtest=**/*FunctionalTesting verify;
      else  echo "ERRORES!!! ... se abortan resto de test"; 
   fi
+# Deploy in Heroku
 deploy:
   provider: heroku
   api_key:

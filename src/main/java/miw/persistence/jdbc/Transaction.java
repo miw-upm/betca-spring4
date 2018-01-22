@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.log4j.Logger;
+
 public class Transaction {
-    public static void main(String[] args) {
+    public void run() {
         Connection conexion = null;
         Statement sentencia = null;
         ResultSet result = null;
@@ -19,13 +21,15 @@ public class Transaction {
             Class.forName("com.mysql.jdbc.Driver");
             conexion = DriverManager.getConnection(url, user, pass);
             sentencia = conexion.createStatement();
+            Logger.getLogger(this.getClass().getName()).info("OK. Driver cargado");
         } catch (ClassNotFoundException e) {
-            System.out.println("Imposible cargar el driver: " + e.getMessage());
+            Logger.getLogger(this.getClass().getName()).info("Imposible cargar el driver: " + e.getMessage());
         } catch (SQLException e) {
-            System.out.println("Imposible conectar: " + e.getMessage());
+            Logger.getLogger(this.getClass().getName()).info("Imposible conectar: " + e.getMessage());
         }
+
         try {
-            System.out.println("Transaction...");
+            Logger.getLogger(this.getClass().getName()).info("Transaction...");
             // begin
             conexion.setAutoCommit(false);
 
@@ -40,24 +44,27 @@ public class Transaction {
             try {
                 // Hay problemas, se deshace todo
                 conexion.rollback();
-                System.out.println("OK. Deshaciendo por rollback... " + e.getMessage());
+                Logger.getLogger("OK. Deshaciendo por rollback... " + e.getMessage());
             } catch (SQLException e1) {
-                System.out.println("ERROR (rollback): " + e1.getMessage());
+                Logger.getLogger("ERROR (rollback): " + e1.getMessage());
             }
         } finally {
             try {
                 conexion.setAutoCommit(true);
             } catch (SQLException e) {
-                System.out.println(e);
+                Logger.getLogger("ERROR (commit): " + e);
             }
         }
         try {
             result = sentencia.executeQuery("SELECT * FROM tabla1");
             while (result.next())
-                System.out.println("id1: " + result.getLong("id1") + ", nombre: " + result.getString("nombre"));
+                Logger.getLogger("id1: " + result.getLong("id1") + ", nombre: " + result.getString("nombre"));
         } catch (SQLException e) {
-            System.out.println("Consulta Fallida: " + e.getMessage());
+            Logger.getLogger("Consulta Fallida: " + e.getMessage());
         }
+    }
 
+    public static void main(String[] args) {
+        new Transaction().run();
     }
 }

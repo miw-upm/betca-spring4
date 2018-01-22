@@ -3,10 +3,6 @@ package miw;
 import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
-import org.springframework.batch.core.JobParametersInvalidException;
-import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
-import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
-import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -44,17 +40,15 @@ public class Application implements CommandLineRunner {
 
     // Nos permite testear aspectos puntualesr+
     @Override
-    public void run(String... args) throws JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException,
-            JobParametersInvalidException {
-        // mvn clean spring-boot:run -Drun.arguments="injection"
+    public void run(String... args) {
         if (args.length > 0) {
-            if (args[0].equals("injection")) {
+            if (args[0].equals("injection")) { // mvn clean spring-boot:run -Drun.arguments="injection"
                 this.mainInjection.debugAndClose();
-            } else if (args[0].equals("async")) {
+            } else if (args[0].equals("async")) { // mvn clean spring-boot:run -Drun.arguments="async"
                 Logger.getLogger("miw.Asynchronous").info("Antes de llamada asincrona...");
                 Future<String> future = this.async.asyncMethodWithReturnType();
                 Logger.getLogger("miw.Asynchronous").info("... Despues de llamada asincrona, future:" + future.isDone());
-            } else if (args[0].equals("mongo")) {
+            } else if (args[0].equals("mongo")) { // mvn clean spring-boot:run -Drun.arguments="mongo"
                 this.userRepository.deleteAll();
                 this.vehicleRepository.deleteAll();
                 this.mobileRepository.deleteAll();
@@ -70,7 +64,7 @@ public class Application implements CommandLineRunner {
                 mobileRepository.save(user1.getMobileList());
                 this.userRepository.save(user1);
                 this.userRepository.save(new User("dos", "doooossss", new Address("Madrid", "Gran Via"), vehicle2));
-                System.out.println(">>>>>>>>> " + this.userRepository.findAll());
+                Logger.getLogger("miw.mongo").info("... :userRepository.findAll()" + this.userRepository.findAll());
             }
         }
     }
