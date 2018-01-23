@@ -6,9 +6,10 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-    MobileRepositoryIT.class,
-    VehicleRepositoryIT.class,
-    UserRepositoryIT.class
+    UnRelatedRepositoryIT.class,
+    OneToOneEmbeddedRepositoryIT.class,
+    OneAndManyToOneRepositoryIT.class,
+    OneToManyToManyRepositoryIT.class
 })
 public class AllPersistenceMongoRepositoryIntegrationsTests {
 

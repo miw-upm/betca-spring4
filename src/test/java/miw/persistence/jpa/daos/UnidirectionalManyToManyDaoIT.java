@@ -3,6 +3,7 @@ package miw.persistence.jpa.daos;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -30,24 +31,28 @@ public class UnidirectionalManyToManyDaoIT {
     @Autowired
     private AnyDao anyDao;
 
-    private AnyEntity[] array = {new AnyEntity("uno"), new AnyEntity("dos"), new AnyEntity("tres")};
-    private AnyEntity[] array2 = {new AnyEntity("cuatro"), new AnyEntity("cinco")};
+    private List<AnyEntity> array;
+
+    private List<AnyEntity> array2;
 
     private UnidirectionalManyToManyEntity entity;
+
     private UnidirectionalManyToManyEntity entity2;
 
     @Before
     public void before() {
-        this.entity = new UnidirectionalManyToManyEntity("Mi Nick", Arrays.asList(array));
-        this.entity2 = new UnidirectionalManyToManyEntity("Mi Nick2", Arrays.asList(array));
+        this.array = Arrays.asList(new AnyEntity[] {new AnyEntity("auno"), new AnyEntity("ados"), new AnyEntity("atres")});
+        this.array2 = Arrays.asList(new AnyEntity[] {new AnyEntity("acuatro"), new AnyEntity("acinco")});
+        this.entity = new UnidirectionalManyToManyEntity("Mi Nick", array);
+        this.entity2 = new UnidirectionalManyToManyEntity("Mi Nick2", array2);
     }
 
     @Test
     public void testFindOne() {
-        anyDao.save(Arrays.asList(this.array));
-        anyDao.save(Arrays.asList(this.array2));
+        anyDao.save(array);
+        anyDao.save(array2);
         unidirectionalManyToManyDao.save(entity);
-        unidirectionalManyToManyDao.save(entity2);
+        unidirectionalManyToManyDao.save(entity);
         assertEquals(3, unidirectionalManyToManyDao.findOne(entity.getId()).getAnyEntityList().size());
     }
 
@@ -55,8 +60,8 @@ public class UnidirectionalManyToManyDaoIT {
     public void delete() {
         unidirectionalManyToManyDao.delete(entity);
         unidirectionalManyToManyDao.delete(entity2);
-        anyDao.delete(Arrays.asList(array));
-        anyDao.delete(Arrays.asList(array2));
+        anyDao.delete(array);
+        anyDao.delete(array2);
     }
 
 }

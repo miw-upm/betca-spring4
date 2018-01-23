@@ -3,6 +3,7 @@ package miw.persistence.jpa.daos;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.GregorianCalendar;
@@ -64,12 +65,12 @@ public class UnRelatedDaoIT {
         assertEquals(3, unRelatedDao.findFirst3ByNickStartingWith("ni").size());
     }
 
-    // @Test
-    // public void testFindByNickOrLargeOrderByIdDesc() {
-    // assertTrue(unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(0).getId() > unRelatedDao
-    // .findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(1).getId());
-    // assertEquals(4, unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").size());
-    // }
+    @Test
+    public void testFindByNickOrLargeOrderByIdDesc() {
+        assertTrue(unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(0).getId() > unRelatedDao
+                .findByNickOrLargeOrderByIdDesc("NoNick", "Large...").get(1).getId());
+        assertEquals(4, unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").size());
+    }
 
     @Test
     public void testFindByIdGreaterThan() {
@@ -124,12 +125,6 @@ public class UnRelatedDaoIT {
         unRelatedDao.deleteByNickQuery("unNick");
         assertNull(unRelatedDao.findByNick("unNick"));
     }
-
-    // @Test
-    // public void testCustom(){
-    // unRelatedDao.custom(new UnRelatedEntity("custom"));
-    // assertNotNull(unRelatedDao.findByNickIgnoreCase("custom"));
-    // }
 
     @After
     public void deleteAll() {
