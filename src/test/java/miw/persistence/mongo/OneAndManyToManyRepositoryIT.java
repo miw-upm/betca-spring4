@@ -21,7 +21,7 @@ import miw.persistence.mongo.repositories.OneAndManyToManyRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test.properties")
-public class OneToManyToManyRepositoryIT {
+public class OneAndManyToManyRepositoryIT {
 
     @Autowired
     private OneAndManyToManyRepository oneToManyRepository;
@@ -30,7 +30,7 @@ public class OneToManyToManyRepositoryIT {
     private AnyRepository anyRepository;
 
     @Before
-    public void populate() {
+    public void seedDb() {
         this.oneToManyRepository.deleteAll();
         this.anyRepository.deleteAll();
         List<AnyDocument> anyDocumentList = new ArrayList<>();

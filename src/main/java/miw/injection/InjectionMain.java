@@ -28,14 +28,14 @@ public class InjectionMain {
     }
 
     public void debugAndClose() {
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName())
-                .info(">>>>>> message: " + this.singletonMessageService.getMessage());
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName())
-                .info(">>>>>> message: " + this.singletonMessageService2.getMessage());
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName())
-                .info(">>>>>> message: " + this.prototypeInjectoOnlyMessageService.getMessage());
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName())
-                .info(">>>>>> message: " + this.prototypeInjectoOnlyMessageService2.getMessage());
+        Logger.getLogger(this.getClass()).info(">>>>>> message: " + this.singletonMessageService.getMessage());
+
+        Logger.getLogger(this.getClass()).info(">>>>>> message: " + this.singletonMessageService2.getMessage());
+
+        Logger.getLogger(this.getClass()).info(">>>>>> message: " + this.prototypeInjectoOnlyMessageService.getMessage());
+
+        Logger.getLogger(this.getClass()).info(">>>>>> message: " + this.prototypeInjectoOnlyMessageService2.getMessage());
+
         configurableApplicationContext.close();
     }
 

@@ -15,7 +15,7 @@ public class SchedulingAsync {
     // (*) Cualquier valor, (/X) cada X, (?) sin especificar
     public static final String CADA_MINUTO = "0 * * * * *";
 
-    public static final String CADA_30_SEGUNDOS = "*/10 * * * * *";
+    public static final String CADA_30_SEGUNDOS = "*/30 * * * * *";
 
     public static final String CADA_MEDIA_NOCHE = "0 0 0 * * *";
 

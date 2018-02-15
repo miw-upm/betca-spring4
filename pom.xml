@@ -101,7 +101,7 @@
     <!-- ================ TEST  extensions================== -->
     <!-- Unit Test: **/*Test -->
     <!-- Integration Test: **/*IT -->
-    <!-- Functional Test: **/*Test -->
+    <!-- Functional Test: **/*FunctionalTesting -->
 	<build>
 		<plugins>
 			<plugin>

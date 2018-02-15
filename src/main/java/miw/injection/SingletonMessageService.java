@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-// @Service("messageService") o  @Service(value="messageService") por defecto
+// @Service("singletonMessageService") o  @Service(value="singletonMessageService") por defecto
 // @Scope("prototype") //Por defecto singleton
 // @Scope(org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 
@@ -25,7 +25,7 @@ public class SingletonMessageService {
     }
 
     public String getMessage() {
-        return this.counter++ + ": SingletonMessageService!!! " + this.name;
+        return this.counter++ + ": SingletonMessageService!!! " + "miw.name:" + this.name;
     }
 
     @PreDestroy

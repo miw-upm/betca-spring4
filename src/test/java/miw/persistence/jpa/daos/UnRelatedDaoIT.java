@@ -32,7 +32,7 @@ public class UnRelatedDaoIT {
     private UnRelatedDao unRelatedDao;
 
     @Before
-    public void populate() {
+    public void seedDb() {
         String[] list = {"0", "1"};
         for (int i = 0; i < 4; i++) {
             unRelatedDao.save(new UnRelatedEntity("nick" + i, Gender.MALE, new GregorianCalendar(1964, 11, 31), "Large...", list,
@@ -40,7 +40,7 @@ public class UnRelatedDaoIT {
         }
     }
 
-    // CRUD
+    // By Inheritance: JpaRepository
     @Test
     public void testCount() {
         assertEquals(4, unRelatedDao.count());
@@ -59,6 +59,7 @@ public class UnRelatedDaoIT {
         assertNotNull(unRelatedDao.findByNickIgnoreCase("NICK1"));
     }
 
+    // By Methods Names
     @Test
     public void testFindFirst3ByNickStartingWith() {
         assertEquals(0, unRelatedDao.findFirst3ByNickStartingWith("no").size());
@@ -72,6 +73,7 @@ public class UnRelatedDaoIT {
         assertEquals(4, unRelatedDao.findByNickOrLargeOrderByIdDesc("NoNick", "Large...").size());
     }
 
+    // Pagination
     @Test
     public void testFindByIdGreaterThan() {
         assertEquals(2, unRelatedDao.findByIdGreaterThan(0, new PageRequest(0, 2)).size());
@@ -102,7 +104,7 @@ public class UnRelatedDaoIT {
         assertEquals("nick1", unRelatedDao.findByNick("nick1").getNick());
     }
 
-    // BORRADO
+    // Delete
     @Test
     public void testDeleteByNick() {
         assertNotNull(unRelatedDao.findByNick("nick0"));
@@ -127,7 +129,7 @@ public class UnRelatedDaoIT {
     }
 
     @After
-    public void deleteAll() {
+    public void deleteDb() {
         unRelatedDao.deleteAll();
     }
 

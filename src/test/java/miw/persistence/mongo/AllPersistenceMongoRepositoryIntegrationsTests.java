@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
     UnRelatedRepositoryIT.class,
     OneToOneEmbeddedRepositoryIT.class,
     OneAndManyToOneRepositoryIT.class,
-    OneToManyToManyRepositoryIT.class
+    OneAndManyToManyRepositoryIT.class
 })
 public class AllPersistenceMongoRepositoryIntegrationsTests {
 

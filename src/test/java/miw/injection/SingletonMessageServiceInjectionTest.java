@@ -20,8 +20,9 @@ public class SingletonMessageServiceInjectionTest {
 
     @Test
     public void testGetMessage() {
+        // OJO Test relativos
         int i = Integer.parseInt(this.singletonMessageService.getMessage().split(":")[0]);
         assertEquals(i+1, Integer.parseInt(this.singletonMessageService.getMessage().split(":")[0]));
-        Logger.getLogger(this.getClass().getName()).debug(">>>>>> message: " + this.singletonMessageService.getMessage());        
+        Logger.getLogger(this.getClass()).debug(">>>>>> message: " + this.singletonMessageService.getMessage());        
     }
 }

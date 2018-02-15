@@ -16,7 +16,7 @@ public class Application implements CommandLineRunner {
     // http://localhost:8080/h2-console...JDBC URL: jdbc:h2:mem:testdb
 
     @Autowired
-    private InjectionMain mainInjection;
+    private InjectionMain injectionMain;
 
     @Autowired
     private SchedulingAsync async;
@@ -26,7 +26,7 @@ public class Application implements CommandLineRunner {
     public void run(String... args) {
         if (args.length > 0) {
             if (args[0].equals("injection")) { // mvn clean spring-boot:run -Drun.arguments="injection"
-                this.mainInjection.debugAndClose();
+                this.injectionMain.debugAndClose();
             } else if (args[0].equals("async")) { // mvn clean spring-boot:run -Drun.arguments="async"
                 Logger.getLogger("miw.Asynchronous").info("Antes de llamada asincrona...");
                 Future<String> future = this.async.asyncMethodWithReturnType();

@@ -77,4 +77,28 @@ public class UnRelatedRepositoryIT {
         assertNull(unRelatedRepository.findByNick("nick0"));
     }
 
+    // Query
+    @Test
+    public void testFindByNick() {
+        assertNotNull(unRelatedRepository.findByNick("nick0"));
+    }
+
+    @Test
+    public void testFindIdAndBornDateAndLargeByNick() {
+        assertNotNull(unRelatedRepository.findIdAndBornDateAndLargeByNick("nick0").getId());
+        assertNotNull(unRelatedRepository.findIdAndBornDateAndLargeByNick("nick0").getBornDate());
+        assertNotNull(unRelatedRepository.findIdAndBornDateAndLargeByNick("nick0").getLarge());
+    }
+
+    @Test
+    public void testFindBornDateByNick() {
+        assertNotNull(unRelatedRepository.findBornDateByNick("nick0").getBornDate());
+    }
+
+    @Test
+    public void testFindByNickAndLarge() {
+        assertNotNull(unRelatedRepository.findByNickAndLarge("nick0", "Large..."));
+        assertNull(unRelatedRepository.findByNickAndLarge("nick0", "NOT"));
+    }
+
 }

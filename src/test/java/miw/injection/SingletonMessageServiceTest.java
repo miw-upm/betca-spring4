@@ -18,6 +18,7 @@ public class SingletonMessageServiceTest {
     public void testGetMessage() {
         assertEquals("1", this.singletonMessageService.getMessage().substring(0, 1));
         assertEquals("2", this.singletonMessageService.getMessage().substring(0, 1));
+        System.out.println(">>>>>> OJO, NO hay INJECCION: ");        
         System.out.println(">>>>>> message: " + this.singletonMessageService.getMessage());        
     }
 }

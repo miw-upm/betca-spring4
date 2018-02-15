@@ -21,16 +21,16 @@ public class UnRelatedDocument {
 
     private Gender gender; // Se guarda el String asociado
 
-    private Date bornDate;
+    private Date bornDate; // ISODate: YYYY-MM-DDThh:mm:ss.sTZD, TZD = time zone designator (Z or +hh:mm or -hh:mm)
+                           // (1997-07-16T19:20:30.45+01:00) (2018-02-22T22:20Z)
 
     private String[] strings;
 
     private String large;
-    
+
     private boolean booleano;
 
     private int integer;
-    
 
     private long loger;
 
@@ -39,15 +39,19 @@ public class UnRelatedDocument {
     @Transient
     private String noPersistent;
 
+    
+    public UnRelatedDocument() {
+    }
+
     public UnRelatedDocument(String nick) {
         this.nick = nick;
         this.gender = Gender.FEMALE;
         this.bornDate = new Date();
-        this.strings =  new String[] {"uno","dos"};
+        this.strings = new String[] {"uno", "dos"};
         this.large = "Large...";
         this.noPersistent = "noPersistent";
         this.booleano = true;
-        this.integer=666;
+        this.integer = 666;
         this.loger = this.bornDate.getTime();
         this.decimal = 666.666e30;
     }

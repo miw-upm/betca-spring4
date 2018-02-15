@@ -1,5 +1,8 @@
 package miw.persistence.mongo;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -25,13 +28,25 @@ public class OneToOneEmbeddedRepositoryIT {
     @Before
     public void populate() {
         this.unidirectionalOneToOneEmbeddedRepository.deleteAll();
-        this.unidirectionalOneToOneEmbeddedRepository
-                .save(new OneToOneEmbeddedDocument("nick", new EmbeddableDocument(1, "1")));
+        this.unidirectionalOneToOneEmbeddedRepository.save(new OneToOneEmbeddedDocument("nick", new EmbeddableDocument(1, "1")));
+        this.unidirectionalOneToOneEmbeddedRepository.save(new OneToOneEmbeddedDocument("nick", new EmbeddableDocument(2, "2")));
+        this.unidirectionalOneToOneEmbeddedRepository.save(new OneToOneEmbeddedDocument("nick", new EmbeddableDocument(3, "2")));
     }
 
     @Test
     public void test() {
         assertTrue(unidirectionalOneToOneEmbeddedRepository.count() > 0);
+    }
+
+    @Test
+    public void testFindFirstByEmbeddableDocumentValue() {
+        assertNotNull(unidirectionalOneToOneEmbeddedRepository.findFirstByEmbeddableDocumentValue("1"));
+        assertNull(unidirectionalOneToOneEmbeddedRepository.findFirstByEmbeddableDocumentValue("NOT"));
+    }
+
+    @Test
+    public void testFindFirst10ByEmbeddableDocumentValue() {
+        assertEquals(2, unidirectionalOneToOneEmbeddedRepository.findFirst10ByEmbeddableDocumentValue("2").size());
     }
 
 }

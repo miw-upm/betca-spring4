@@ -37,7 +37,7 @@ public class LibraryIT {
 
     @Before
     public void populate() {
-        daosLibraryServiceIntegrationTest.populate();
+        daosLibraryServiceIntegrationTest.seedDb();
     }
 
     @Test
@@ -70,7 +70,7 @@ public class LibraryIT {
 
     @After
     public void deleteAll() {
-        daosLibraryServiceIntegrationTest.deleteAll();
+        daosLibraryServiceIntegrationTest.deleteDb();
     }
 
 }

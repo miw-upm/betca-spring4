@@ -30,7 +30,7 @@ public class DaosLibraryService {
     @Autowired
     private ThemeDao themeDao;
 
-    public void populate(){
+    public void seedDb(){
         Theme[] themeArray = {new Theme("Acción"), new Theme("Suspense"), new Theme("Drama")};
         themeDao.save(Arrays.asList(themeArray));
 
@@ -43,13 +43,13 @@ public class DaosLibraryService {
                 new Author("Ana", "Reb", new Contact("a2@gmail.com", 666666663), styleArray[1])};
         authorDao.save(Arrays.asList(authorArray));
 
-        Book[] bookArray = {new Book("isbn1", "La flauta", Arrays.asList(themeArray[0], themeArray[2]), Arrays.asList(authorArray[0])),
+        Book[] bookArray = {new Book("isbn1", "El calabacín", Arrays.asList(themeArray[0], themeArray[2]), Arrays.asList(authorArray[0])),
                 new Book("isbn2", "La mazorca", Arrays.asList(themeArray[1]), Arrays.asList(authorArray[1], authorArray[2])),
                 new Book("isbn3", "El pepino", Arrays.asList(themeArray[0]), Arrays.asList(authorArray[2]))};
         bookDao.save(Arrays.asList(bookArray));
     }
     
-    public void deleteAll(){
+    public void deleteDb(){
         bookDao.deleteAll();
         themeDao.deleteAll();
         authorDao.deleteAll();

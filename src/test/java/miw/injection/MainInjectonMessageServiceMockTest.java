@@ -27,6 +27,7 @@ public class MainInjectonMessageServiceMockTest {
     @Test
     public void testGetMessage() {
         given(this.singletonMessageService.getMessage()).willReturn("ok");
+        
         assertEquals("ok", this.mainInjection.getMessage());
         Logger.getLogger(this.getClass().getName()).debug(">>>>>> message: " + this.mainInjection.getMessage());
     }
