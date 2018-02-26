@@ -21,7 +21,7 @@ public class SingletonMessageService {
 
     @PostConstruct
     public void constructor() {
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName()).info(">>>>>> SingletonMessageService:constructor()");
+        Logger.getLogger(this.getClass()).info(">>>>>> SingletonMessageService:constructor()");
     }
 
     public String getMessage() {
@@ -30,7 +30,7 @@ public class SingletonMessageService {
 
     @PreDestroy
     public void destroy() {
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName()).info(">>>>>> SingletonMessageService:destroy()");
+        Logger.getLogger(this.getClass()).info(">>>>>> SingletonMessageService:destroy()");
     }
 
 }

@@ -16,7 +16,7 @@ public class InjectionConfig {
     @Bean
     @Scope("prototype") // Por defecto singleton
     public PrototypeInjectoOnlyMessageService prototypeInjectoOnlyMessageService() {
-        Logger.getLogger("BETCA-spring." + this.getClass().getSimpleName())
+        Logger.getLogger("miw.BETCA" + this.getClass().getSimpleName())
                 .info(">>>> se crea el Bean: PrototypeInjectoOnlyMessageService");
         return new PrototypeInjectoOnlyMessageService();
     }
