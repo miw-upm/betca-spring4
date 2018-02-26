@@ -8,11 +8,11 @@
 
 
 ## Tecnologías
-* Eclipse
 * Maven
-* MySQL
 * Tomcat
-* Spring
+* H2-MySQL
+* Mongodb
+* Spring-boot
 
 ## Importar el proyecto mediante Eclipse
 1. Clonar mediante Eclipse este repositorio en la máquina local: https://youtu.be/rQNixJQQ25g
