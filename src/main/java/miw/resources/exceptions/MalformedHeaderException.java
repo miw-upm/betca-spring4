@@ -6,14 +6,12 @@ public class MalformedHeaderException extends Exception {
 
     public static final String DESCRIPTION = "Error de Authorization en cabecera por formato erroneo, debe estar en Auth Basic";
 
-    public static final int CODE = 666;
-
     public MalformedHeaderException() {
         this("");
     }
 
     public MalformedHeaderException(String detail) {
-        super(DESCRIPTION + ". " + detail + ". CODE: " + CODE);
+        super(DESCRIPTION + ". " + detail);
     }
 
 }

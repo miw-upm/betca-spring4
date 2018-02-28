@@ -43,15 +43,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-		<!-- Database ====================================== -->
+		<!-- Database -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<!-- Mongodb external -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+		<!-- Mongodb embedded 
+		<dependency>
+			<groupId>de.flapdoodle.embed</groupId>
+			<artifactId>de.flapdoodle.embed.mongo</artifactId>
+			<scope>test</scope>
+		</dependency> -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -95,10 +102,10 @@
 		</dependency>
 	</dependencies>
 
-    <!-- ================ TEST  extensions================== -->
-    <!-- Unit Test: **/*Test -->
-    <!-- Integration Test: **/*IT -->
-    <!-- Functional Test: **/*FunctionalTesting -->
+	<!-- ================ TEST extensions================== -->
+	<!-- Unit Test: **/*Test -->
+	<!-- Integration Test: **/*IT -->
+	<!-- Functional Test: **/*FunctionalTesting -->
 	<build>
 		<plugins>
 			<plugin>

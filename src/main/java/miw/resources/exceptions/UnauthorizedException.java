@@ -6,14 +6,12 @@ public class UnauthorizedException extends Exception {
 
     public static final String DESCRIPTION = "La identificación utilizada no tiene la autoridad suficiente";
 
-    public static final int CODE = 001;
-
     public UnauthorizedException() {
         this("");
     }
 
     public UnauthorizedException(String detail) {
-        super(DESCRIPTION + ". " + detail + ". CODE: " + CODE);
+        super(DESCRIPTION + ". " + detail);
     }
 
 }

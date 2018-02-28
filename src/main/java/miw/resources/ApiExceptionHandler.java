@@ -25,19 +25,25 @@ public class ApiExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({MalformedHeaderException.class})
+    @ExceptionHandler({Exception.class, MalformedHeaderException.class}) // Exception no esperada--> BAD-REQUEST
     @ResponseBody
     public ErrorMessage badRequest(Exception exception) {
         ErrorMessage errorMessage = new ErrorMessage(exception, "");
         return errorMessage;
     }
 
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ExceptionHandler({UnauthorizedException.class})
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ExceptionHandler({org.springframework.security.access.AccessDeniedException.class})
     @ResponseBody
-    public ErrorMessage conflictRequest(Exception exception) {
+    public ErrorMessage forbiddenRequest(Exception exception) {
         ErrorMessage errorMessage = new ErrorMessage(exception, "");
         return errorMessage;
     }
+    
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler({UnauthorizedException.class})
+    public void conflictRequest(Exception exception) {
+    }
+
 
 }

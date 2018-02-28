@@ -17,8 +17,13 @@ public class MailServiceIntegrationTests {
     @Autowired
     private MailService mailService;
 
-    //@Test
+    // @Test
     public void testSendMail() {
         mailService.from("miw.betca").to("miwupm@gmail.com").subject("Saludos").msg("Mail Service test").send();
+    }
+
+    // @Test
+    public void testEmailPassword() {
+        System.out.println(">>>>>>>" + System.getenv("EMAIL_PASSWORD"));
     }
 }

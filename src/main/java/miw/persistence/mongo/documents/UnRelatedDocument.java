@@ -21,8 +21,10 @@ public class UnRelatedDocument {
 
     private Gender gender; // Se guarda el String asociado
 
-    private Date bornDate; // ISODate: YYYY-MM-DDThh:mm:ss.sTZD, TZD = time zone designator (Z or +hh:mm or -hh:mm)
-                           // (1997-07-16T19:20:30.45+01:00) (2018-02-22T22:20Z)
+    // @DateTimeFormat(iso=ISO.DATE) // ISO.DATE_TIME, ISO.TIME
+    // ISODate: YYYY-MM-DDThh:mm:ss.sTZD, TZD = time zone designator (Z or +hh:mm or -hh:mm)
+    // (1997-07-16T19:20:30.45+01:00) (2018-02-22T22:20Z)
+    private Date bornDate;
 
     private String[] strings;
 
@@ -39,7 +41,6 @@ public class UnRelatedDocument {
     @Transient
     private String noPersistent;
 
-    
     public UnRelatedDocument() {
     }
 

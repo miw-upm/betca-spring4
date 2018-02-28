@@ -1,4 +1,4 @@
-package miw.config;
+package miw.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import miw.resources.AdminResource;
-import miw.resources.SecurityResource;
 
 @Configuration
 @EnableWebSecurity
@@ -35,10 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().exceptionHandling().accessDeniedHandler(null).and().authorizeRequests()
+        http.csrf().disable()
+            .authorizeRequests()
                 .antMatchers(AdminResource.ADMINS + "/**").permitAll()
                 .antMatchers(SecurityResource.SECURITY + SecurityResource.USER + "/**").authenticated()
-                .antMatchers(HttpMethod.GET, SecurityResource.SECURITY + SecurityResource.ADMIN).hasRole("ADMIN").and().httpBasic();
+                .antMatchers(HttpMethod.GET, SecurityResource.SECURITY + SecurityResource.ADMIN).hasRole("ADMIN")
+            .and().httpBasic();
     }
 
     @Bean

@@ -15,7 +15,7 @@ public class HttpMatcher extends TypeSafeMatcher<HttpClientErrorException> {
     
     @Override
     public void describeTo(Description description) {
-        description.appendText(" esperado: ").appendValue(expectedHttpStatus);
+        description.appendText(" Expected: ").appendValue(expectedHttpStatus);
     }
 
     @Override

@@ -25,7 +25,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class RestBuilder<T> {
 
     private static final String SERVER_URI_DEFAULT = "http://localhost";
-    
+
     private static final int PORT_DEFAULT = 8080;
 
     private RestTemplate restTemplate = new RestTemplate();
@@ -55,7 +55,7 @@ public class RestBuilder<T> {
     private boolean log;
 
     public RestBuilder(String serverUri, int port) {
-        restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory());
+        restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory()); // org.apache.httpcomponents.httpclient
         this.serverUri = serverUri;
         this.port = port;
         this.path = "";
@@ -78,8 +78,18 @@ public class RestBuilder<T> {
         this(serverUri, PORT_DEFAULT);
     }
 
+    public RestBuilder<T> clazz(Class<T> clazz) {
+        this.clazz = clazz;
+        return this;
+    }
+    
     public RestBuilder<T> port(int port) {
         this.port = port;
+        return this;
+    }
+
+    public RestBuilder<T> serverUri(String serverUri) {
+        this.serverUri = serverUri;
         return this;
     }
 
@@ -118,7 +128,7 @@ public class RestBuilder<T> {
     }
 
     public RestBuilder<T> accept(MediaType mediaType) {
-        if(this.mediaTytes.isEmpty()) {
+        if (this.mediaTytes.isEmpty()) {
             this.mediaTytes.add(MediaType.APPLICATION_JSON);
         }
         this.mediaTytes.add(mediaType);
@@ -139,11 +149,6 @@ public class RestBuilder<T> {
         return this;
     }
 
-    public RestBuilder<T> clazz(Class<T> clazz) {
-        this.clazz = clazz;
-        return this;
-    }
-
     private HttpHeaders headers() {
         HttpHeaders headers = new HttpHeaders();
         for (String key : headerValues.keySet()) {
@@ -152,7 +157,7 @@ public class RestBuilder<T> {
         if (authorization != null) {
             headers.set("Authorization", authorization);
         }
-        if (this.mediaTytes.isEmpty()) {
+        if (!this.mediaTytes.isEmpty()) {
             headers.setAccept(this.mediaTytes);
         }
         return headers;

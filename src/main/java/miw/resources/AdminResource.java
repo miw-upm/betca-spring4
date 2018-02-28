@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import miw.aspect.Time;
 import miw.persistence.jpa.entities.Gender;
 import miw.resources.exceptions.MalformedHeaderException;
 import miw.resources.exceptions.NotFoundUserIdException;
@@ -24,6 +23,7 @@ import miw.resources.exceptions.UnauthorizedException;
 public class AdminResource {
 
     public static final String ADMINS = "/admins";
+    
 
     public static final String STATE = "/state";
 
@@ -61,8 +61,8 @@ public class AdminResource {
     }
 
     @RequestMapping(value = BODY, method = RequestMethod.POST)
-    public Dto body(@RequestBody Dto wrapper) {
-        return wrapper;
+    public Dto body(@RequestBody Dto dto) {
+        return dto;
     }
 
     @RequestMapping(value = BODY + STRING_LIST, method = RequestMethod.GET)
@@ -70,7 +70,7 @@ public class AdminResource {
         return Arrays.asList("uno", "dos", "tres");
     }
 
-    @Time
+    //@Time
     @RequestMapping(value = BODY + DTO_LIST, method = RequestMethod.GET)
     public List<Dto> bodyDtoList() {
         Dto dto1 = new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
