@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import miw.aspect.Time;
 import miw.persistence.jpa.entities.Gender;
 import miw.resources.exceptions.MalformedHeaderException;
 import miw.resources.exceptions.NotFoundUserIdException;
@@ -69,12 +70,13 @@ public class AdminResource {
         return Arrays.asList("uno", "dos", "tres");
     }
 
+    @Time
     @RequestMapping(value = BODY + DTO_LIST, method = RequestMethod.GET)
     public List<Dto> bodyDtoList() {
-        Dto wrapper1 = new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
-        Dto wrapper2 = new Dto(999, "last", Gender.MALE, new GregorianCalendar(1979, 07, 22));
-        Dto wrapper3 = new Dto(000, "first", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
-        return Arrays.asList(wrapper1, wrapper2, wrapper3);
+        Dto dto1 = new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
+        Dto dto2 = new Dto(999, "last", Gender.MALE, new GregorianCalendar(1979, 07, 22));
+        Dto dto3 = new Dto(000, "first", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
+        return Arrays.asList(dto1, dto2, dto3);
     }
 
     // Excepciones
