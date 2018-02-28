@@ -53,21 +53,21 @@ public class AdminResourceFunctionalTesting {
 
     @Test
     public void testStateRestBuilder() {
-        String json = new RestBuilder<String>(port).path(AdminResource.ADMINS).path(AdminResource.STATE).clazz(String.class).get().build();
+        String json = new RestBuilder<String>(port).clazz(String.class).path(AdminResource.ADMINS).path(AdminResource.STATE).get().build();
         assertEquals("{\"state\":\"ok\"}", json);
     }
-    
+
     @Test
     public void testOutOfTime() {
         thrown.expect(new HttpMatcher(HttpStatus.FORBIDDEN));
-        new RestBuilder<String>(port).path(AdminResource.ADMINS).path(AdminResource.OUT_OF_TIME).clazz(String.class).get().build();
+        new RestBuilder<>(port).path(AdminResource.ADMINS).path(AdminResource.OUT_OF_TIME).get().build();
     }
 
     // Parametros y cuerpo
     @Test
     public void testParamEcho() {
-        String json = new RestBuilder<String>(port).path(AdminResource.ADMINS).path(AdminResource.ECHO).path(AdminResource.ID).expand(666)
-                .param("param", "paaaaram").header("token", "toooken").clazz(String.class).get().build();
+        String json = new RestBuilder<String>(port).clazz(String.class).path(AdminResource.ADMINS).path(AdminResource.ECHO)
+                .path(AdminResource.ID).expand(666).param("param", "paaaaram").header("token", "toooken").get().build();
         assertEquals("{\"id\":666,\"token\":\"toooken\",\"param\":\"paaaaram\"}", json);
     }
 

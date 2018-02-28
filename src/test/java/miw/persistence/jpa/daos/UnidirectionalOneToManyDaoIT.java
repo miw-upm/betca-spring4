@@ -38,9 +38,9 @@ public class UnidirectionalOneToManyDaoIT {
     @Test
     public void testFindOne() {
         unidirectionalOneToManyDao.save(this.entity);
-        UnidirectionalOneToManyEntity unidirectionalOneToManyEmbeddedEntity = unidirectionalOneToManyDao.findOne(this.entity.getId());
-        assertEquals("Mi Nick2", unidirectionalOneToManyEmbeddedEntity.getNick());
-        assertEquals(3, unidirectionalOneToManyEmbeddedEntity.getAnyEntityList().size());
+        UnidirectionalOneToManyEntity unidirectionalOneToManyEntity = unidirectionalOneToManyDao.findOne(this.entity.getId());
+        assertEquals("Mi Nick2", unidirectionalOneToManyEntity.getNick());
+        assertEquals(3, unidirectionalOneToManyEntity.getAnyEntityList().size());
     }
 
     @After
