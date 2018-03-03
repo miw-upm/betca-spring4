@@ -1,11 +1,11 @@
 package miw.persistence.mongo.documents;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class OneToOneEmbeddedDocument {
+
     @Id
     private String id;
 
@@ -18,12 +18,10 @@ public class OneToOneEmbeddedDocument {
         this.embeddableDocument = embeddableDocument;
     }
 
-
     @Override
     public String toString() {
         return "OneToOneEmbeddedDocument [id=" + id + ", nick=" + nick + ", embeddableDocument=" + embeddableDocument + "]";
     }
-
 
     @Override
     public int hashCode() {
@@ -41,11 +39,9 @@ public class OneToOneEmbeddedDocument {
         }
     }
 
-
     public String getId() {
         return id;
     }
-
 
     public String getNick() {
         return nick;

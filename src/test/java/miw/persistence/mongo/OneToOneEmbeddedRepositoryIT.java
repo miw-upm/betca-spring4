@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import miw.persistence.mongo.documents.EmbeddableDocument;
@@ -19,7 +18,6 @@ import miw.persistence.mongo.repositories.OneToOneEmbeddedRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@TestPropertySource(locations = "classpath:test.properties")
 public class OneToOneEmbeddedRepositoryIT {
 
     @Autowired
