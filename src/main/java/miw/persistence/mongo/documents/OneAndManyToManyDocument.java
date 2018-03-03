@@ -39,7 +39,7 @@ public class OneAndManyToManyDocument {
         } else if (getClass() != obj.getClass()) {
             return false;
         } else {
-            return id == ((OneAndManyToManyDocument) obj).id;
+            return id.equals(((OneAndManyToManyDocument) obj).id);
         }
     }
 
