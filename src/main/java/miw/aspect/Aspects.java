@@ -36,6 +36,8 @@ public class Aspects {
     public void allMethodsInPackageAndSubPackage() {
     }
 
+    // Consejos ------------------------------------------
+    
     @Before("allMethodsPackage()")
     public void adviceA(JoinPoint jp) {
         Logger.getLogger("miw." + jp.getSignature().getName()).debug("=== Consejo Antes de ejecutar a metodos de un paquete: ");
