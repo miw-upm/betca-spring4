@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class ApiLogs {
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut("@within(org.springframework.web.bind.annotation.RestController)")
     public void allResources() {
     }
 
@@ -35,7 +35,7 @@ public class ApiLogs {
 
     @AfterThrowing(pointcut = "allResources()", throwing = "exception")
     public void apiResponseExceptionLog(JoinPoint jp, Exception exception) {
-        String log = "<<< Return Exception << " + jp.getSignature().getName() + ": " + exception.getClass().getSimpleName();
+        String log = "<<< Return --EXCEPTION-- << " + jp.getSignature().getName() + ": " + exception.getClass().getSimpleName();
         LogManager.getLogger(jp.getSignature().getDeclaringTypeName()).info(log);
     }
 

@@ -1,8 +1,8 @@
 package miw.resources;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @PreAuthorize("authenticated") // Opcion alternativa a las rutas http
@@ -18,18 +18,18 @@ public class SecurityResource {
 
     public static final String ADMIN = "/admin";
 
-    @RequestMapping(value = USER, method = RequestMethod.GET)
+    @GetMapping(value = USER)
     public String user() {
         return "OK. Acceso permitido al recurso user";
     }
 
     @PreAuthorize("hasRole('ROLE_MANAGER')") // Opcion alternativa a las rutas http
-    @RequestMapping(value = MANAGER, method = RequestMethod.GET)
+    @GetMapping(value = MANAGER)
     public String manager() {
         return "OK. Acceso permitido al recurso manager";
     }
 
-    @RequestMapping(value = ADMIN, method = RequestMethod.GET)
+    @GetMapping(value = ADMIN)
     public String admin() {
         return "OK. Acceso permitido al recurso admin";
     }

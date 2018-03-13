@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,36 +43,36 @@ public class AdminResource {
     public static final String ERROR = "/error";
 
     // Se puede comprobar con un navegador
-    @RequestMapping(value = STATE, method = RequestMethod.GET)
+    @GetMapping(value = STATE)
     public String state() {
         return "{\"state\":\"ok\"}";
     }
 
-    @RequestMapping(value = OUT_OF_TIME, method = RequestMethod.GET)
+    @GetMapping(value = OUT_OF_TIME)
     public String outOfTime() {
         return "{\"state\":\"off\"}";
     }
 
     // Intercambio de datos
-    @RequestMapping(value = ECHO + ID, method = RequestMethod.GET)
+    @GetMapping(value = ECHO + ID)
     public String echo(@RequestHeader(value = "token", required = false) String token, @PathVariable(value = "id") int id,
             @RequestParam(defaultValue = "Non") String param) {
         String response = "{\"id\":%d,\"token\":\"%s\",\"param\":\"%s\"}";
         return String.format(response, id, token, param);
     }
 
-    @RequestMapping(value = BODY, method = RequestMethod.POST)
+    @PostMapping(value = BODY)
     public Dto body(@RequestBody Dto dto) {
         return dto;
     }
 
-    @RequestMapping(value = BODY + STRING_LIST, method = RequestMethod.GET)
+    @GetMapping(value = BODY + STRING_LIST)
     public List<String> bodyStringList() {
         return Arrays.asList("uno", "dos", "tres");
     }
 
     //@Time
-    @RequestMapping(value = BODY + DTO_LIST, method = RequestMethod.GET)
+    @GetMapping(value = BODY + DTO_LIST)
     public List<Dto> bodyDtoList() {
         Dto dto1 = new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
         Dto dto2 = new Dto(999, "last", Gender.MALE, new GregorianCalendar(1979, 07, 22));
@@ -80,7 +81,7 @@ public class AdminResource {
     }
 
     // Excepciones
-    @RequestMapping(value = ERROR + ID, method = RequestMethod.GET)
+    @GetMapping(value = ERROR + ID)
     public Dto error(@RequestHeader(value = "token") String token, @PathVariable(value = "id") int id)
             throws NotFoundUserIdException, UnauthorizedException, MalformedHeaderException {
         if (id == 0) {
@@ -94,5 +95,7 @@ public class AdminResource {
         }
         return new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
     }
+    
+    
 
 }

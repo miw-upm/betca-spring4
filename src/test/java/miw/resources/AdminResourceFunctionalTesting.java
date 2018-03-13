@@ -72,7 +72,7 @@ public class AdminResourceFunctionalTesting {
     @Test
     public void testBodyEcho() {
         Dto dto = new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
-        Dto response = new RestBuilder<Dto>(port).path(AdminResource.ADMINS).path(AdminResource.BODY).body(dto).clazz(Dto.class).post()
+        Dto response = new RestBuilder<Dto>(port).clazz(Dto.class).path(AdminResource.ADMINS).path(AdminResource.BODY).body(dto).post()
                 .build();
         System.out.println(response);
         assertEquals(dto, response);
