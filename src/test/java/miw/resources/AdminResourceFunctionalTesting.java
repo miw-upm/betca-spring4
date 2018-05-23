@@ -6,6 +6,8 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.apache.log4j.Logger;
 import org.junit.Rule;
@@ -126,6 +128,37 @@ public class AdminResourceFunctionalTesting {
                 .header("token", "Basic good").clazz(Dto.class).get().build();
         assertEquals(666, response.getId());
     }
+
+    @Test
+    public void test() {
+        List<String> list = Arrays.asList("u", "dos", "tres");
+        Stream<String> list5 = Stream.of("cuatro", "cinco", "seis");
+
+        for (String item : list) {
+            System.out.println(item);
+        }
+
+        list.forEach(item -> System.out.println(item));
+
+        Stream<String> list2 = list.stream().map(item -> {
+            return item + "--";
+        });
+
+        list2.forEach(item -> System.out.println(item));
+
+        Stream<String> list3 = list.stream().filter(item -> item.length() < 2);
+
+        list3.forEach(item -> System.out.println(item));
+
+        List<String> list4 = list5.collect(Collectors.toList());
+
+        list4.forEach(this::method);
+    }
+
+    private void method(String item) {
+        System.out.println(">>> " + item);
+    }
+
     //
     // @Test
     // public void testSecurityAnnotationOk() {

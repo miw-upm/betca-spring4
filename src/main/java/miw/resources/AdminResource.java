@@ -96,6 +96,4 @@ public class AdminResource {
         return new Dto(666, "daemon", Gender.FEMALE, new GregorianCalendar(1979, 07, 22));
     }
     
-    
-
 }
